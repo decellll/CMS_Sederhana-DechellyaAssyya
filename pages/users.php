@@ -270,37 +270,46 @@ $users = $conn->query($sql);
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
+                    <!-- Modern Users Management Start -->
+                    <div class="page-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+                        <h1 style="font-size:2rem;font-weight:bold;">Users Management</h1>
+                        <div class="quick-actions">
+                            <a href="#user-form" class="btn btn-primary" style="border-radius:20px;font-weight:bold;margin-right:8px;">+ Add User</a>
+                            <a href="#" class="btn btn-warning" style="border-radius:20px;font-weight:bold;">Export</a>
+                        </div>
+                    </div>
+                    <div class="stats-bar" style="display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;">
+                        <div class="stat-card" style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.10);padding:1.2rem 2rem;min-width:160px;">
+                            <div style="font-size:1.2rem;color:#1976D2;font-weight:bold;">Total Users</div>
+                            <div style="font-size:2rem;font-weight:bold;"><?php echo $users->num_rows; ?></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title"><?php echo $user['id'] ? 'Edit' : 'Add'; ?> User</h3>
+                            <div class="card" id="user-form" style="border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.07);padding:2rem;">
+                                <div class="card-header" style="background:none;border:none;padding:0 0 1rem 0;">
+                                    <h3 class="card-title" style="font-size:1.3rem;font-weight:bold;"><?php echo $user['id'] ? 'Edit' : 'Add'; ?> User</h3>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="padding:0;">
                                     <?php if (isset($error)): ?>
                                         <div class="alert alert-danger"><?php echo $error; ?></div>
                                     <?php endif; ?>
-
                                     <form action="" method="post">
                                         <?php if ($user['id']): ?>
                                             <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                                         <?php endif; ?>
-
                                         <div class="form-group">
                                             <label for="username">Username</label>
                                             <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="password"><?php echo $user['id'] ? 'New Password (leave blank to keep current)' : 'Password'; ?></label>
                                             <input type="password" class="form-control" id="password" name="password" <?php echo $user['id'] ? '' : 'required'; ?>>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="role">Role</label>
                                             <select class="form-control" id="role" name="role">
@@ -309,21 +318,22 @@ $users = $conn->query($sql);
                                                 <option value="admin" <?php echo $user['role'] === 'admin' ? 'selected' : ''; ?>>Admin</option>
                                             </select>
                                         </div>
-
-                                        <button type="submit" class="btn btn-primary">Save User</button>
+                                        <button type="submit" class="btn btn-primary" style="border-radius:20px;font-weight:bold;">Save User</button>
                                         <?php if ($user['id']): ?>
-                                            <a href="users.php" class="btn btn-default">Cancel</a>
+                                            <a href="users.php" class="btn btn-default" style="border-radius:20px;">Cancel</a>
                                         <?php endif; ?>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
+                            <div class="card" style="border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.07);padding:2rem;">
+                                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+                                    <input type="text" class="form-control" placeholder="Search users..." style="max-width:300px;">
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped" style="background:#fff;border-radius:12px;overflow:hidden;">
+                                        <thead style="background:#1976D2;color:#fff;">
                                             <tr>
                                                 <th>Username</th>
                                                 <th>Email</th>
@@ -333,18 +343,19 @@ $users = $conn->query($sql);
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php while ($row = $users->fetch_assoc()): ?>
+                                            <?php $users->data_seek(0);
+                                            while ($row = $users->fetch_assoc()): ?>
                                                 <tr>
                                                     <td><?php echo htmlspecialchars($row['username']); ?></td>
                                                     <td><?php echo htmlspecialchars($row['email']); ?></td>
                                                     <td><?php echo ucfirst($row['role']); ?></td>
                                                     <td><?php echo $row['post_count']; ?></td>
                                                     <td>
-                                                        <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-info">
+                                                        <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-info" style="border-radius:50%;margin-right:4px;">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
                                                         <?php if ($row['id'] !== $_SESSION['user_id']): ?>
-                                                            <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                                            <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" style="border-radius:50%;" onclick="return confirm('Are you sure?')">
                                                                 <i class="fas fa-trash"></i>
                                                             </a>
                                                         <?php endif; ?>
@@ -357,6 +368,7 @@ $users = $conn->query($sql);
                             </div>
                         </div>
                     </div>
+                    <!-- Modern Users Management End -->
                 </div>
             </div>
         </div>

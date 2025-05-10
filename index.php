@@ -183,44 +183,74 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-                                    <p>New Posts</p>
+                    <!-- Modern Dashboard Start -->
+                    <div class="dashboard-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+                        <div>
+                            <h1 style="font-size:2rem;font-weight:bold;margin-bottom:0.5rem;">Welcome, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'DechPress User'; ?>!</h1>
+                            <div style="color:#1976D2;font-size:1.1rem;">Have a productive day with DechPress 🚀</div>
+                        </div>
+                        <div class="quick-actions">
+                            <a href="pages/post-edit.php" class="btn btn-primary" style="border-radius:20px;font-weight:bold;margin-right:8px;">+ Add Post</a>
+                            <a href="pages/categories.php" class="btn btn-warning" style="border-radius:20px;font-weight:bold;margin-right:8px;">+ Add Category</a>
+                            <a href="pages/users.php" class="btn btn-success" style="border-radius:20px;font-weight:bold;">+ Add User</a>
+                        </div>
+                    </div>
+                    <div class="dashboard-stats" style="display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;">
+                        <div class="stat-card" style="background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(25,118,210,0.10);padding:2rem 2.5rem;display:flex;align-items:center;min-width:220px;position:relative;transition:transform 0.2s,box-shadow 0.2s;flex:1;">
+                            <div class="stat-icon" style="font-size:3rem;color:#1976D2;opacity:0.15;position:absolute;right:20px;top:20px;"><i class="fas fa-file-alt"></i></div>
+                            <div class="stat-info" style="z-index:1;">
+                                <div class="stat-number" style="font-size:2.5rem;font-weight:bold;color:#1976D2;">150</div>
+                                <div class="stat-label" style="font-size:1.1rem;color:#222831;">New Posts</div>
+                                <div class="progress" style="height:6px;background:#eee;border-radius:3px;margin-top:10px;width:120px;">
+                                    <div style="width:75%;background:#FFD600;height:100%;border-radius:3px;"></div>
                                 </div>
-                                <div class="icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <a href="pages/posts.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53</h3>
-                                    <p>Categories</p>
+                        <div class="stat-card" style="background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(25,118,210,0.10);padding:2rem 2.5rem;display:flex;align-items:center;min-width:220px;position:relative;transition:transform 0.2s,box-shadow 0.2s;flex:1;">
+                            <div class="stat-icon" style="font-size:3rem;color:#1976D2;opacity:0.15;position:absolute;right:20px;top:20px;"><i class="fas fa-folder"></i></div>
+                            <div class="stat-info" style="z-index:1;">
+                                <div class="stat-number" style="font-size:2.5rem;font-weight:bold;color:#1976D2;">53</div>
+                                <div class="stat-label" style="font-size:1.1rem;color:#222831;">Categories</div>
+                                <div class="progress" style="height:6px;background:#eee;border-radius:3px;margin-top:10px;width:120px;">
+                                    <div style="width:60%;background:#FFD600;height:100%;border-radius:3px;"></div>
                                 </div>
-                                <div class="icon">
-                                    <i class="fas fa-folder"></i>
-                                </div>
-                                <a href="pages/categories.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>44</h3>
-                                    <p>Users</p>
+                        <div class="stat-card" style="background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(25,118,210,0.10);padding:2rem 2.5rem;display:flex;align-items:center;min-width:220px;position:relative;transition:transform 0.2s,box-shadow 0.2s;flex:1;">
+                            <div class="stat-icon" style="font-size:3rem;color:#1976D2;opacity:0.15;position:absolute;right:20px;top:20px;"><i class="fas fa-users"></i></div>
+                            <div class="stat-info" style="z-index:1;">
+                                <div class="stat-number" style="font-size:2.5rem;font-weight:bold;color:#1976D2;">44</div>
+                                <div class="stat-label" style="font-size:1.1rem;color:#222831;">Users</div>
+                                <div class="progress" style="height:6px;background:#eee;border-radius:3px;margin-top:10px;width:120px;">
+                                    <div style="width:90%;background:#FFD600;height:100%;border-radius:3px;"></div>
                                 </div>
-                                <div class="icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <a href="pages/users.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
+                    <!-- Mini Chart -->
+                    <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.07);padding:1.5rem 2rem;margin-bottom:2rem;">
+                        <h2 style="font-size:1.3rem;margin-bottom:1rem;color:#1976D2;">Posts per Month</h2>
+                        <canvas id="postsChart" height="60"></canvas>
+                    </div>
+                    <!-- Recent Activity -->
+                    <div class="dashboard-activity" style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.07);padding:1.5rem 2rem;margin-bottom:2rem;">
+                        <h2 style="font-size:1.3rem;margin-bottom:1rem;color:#1976D2;">Recent Activity</h2>
+                        <ul style="list-style:none;padding:0;margin:0;">
+                            <li style="margin-bottom:0.5rem;color:#222831;"><b>Dechellya</b> added a new post: <i>"Tips Programming Modern"</i></li>
+                            <li style="margin-bottom:0.5rem;color:#222831;"><b>Admin</b> created a new category: <i>"Web Development"</i></li>
+                            <li style="margin-bottom:0.5rem;color:#222831;"><b>Dechellya</b> registered as a new user</li>
+                        </ul>
+                    </div>
+                    <!-- Info Panel -->
+                    <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(25,118,210,0.07);padding:1.5rem 2rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+                        <div>
+                            <b>DechPress</b> v1.0.0 &mdash; Modern CMS for Everyone
+                        </div>
+                        <div>
+                            <a href="#" style="color:#1976D2;font-weight:bold;">Documentation</a>
+                        </div>
+                    </div>
+                    <!-- Modern Dashboard End -->
                 </div>
             </div>
         </div>
@@ -240,6 +270,41 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('postsChart').getContext('2d');
+        const postsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Posts',
+                    data: [12, 19, 8, 15, 22, 30, 25, 18, 20, 24, 28, 32],
+                    backgroundColor: 'rgba(25, 118, 210, 0.2)',
+                    borderColor: '#1976D2',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#FFD600',
+                    pointBorderColor: '#1976D2',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
