@@ -95,6 +95,90 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <!-- Summernote -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css">
+    <style>
+        body,
+        .content-wrapper,
+        .container,
+        .container-fluid {
+            background: #fff !important;
+            color: #fff !important;
+        }
+
+        .main-header,
+        .navbar,
+        .main-sidebar,
+        .sidebar,
+        .navbar-brand {
+            background: #1976D2 !important;
+            color: #fff !important;
+        }
+
+        .navbar-brand,
+        .brand-text {
+            color: #fff !important;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            background: #FFD600 !important;
+            color: #1976D2 !important;
+            border-radius: 4px;
+        }
+
+        .btn-primary,
+        .badge-success,
+        .small-box.bg-info,
+        .small-box.bg-success,
+        .small-box.bg-warning {
+            background: #FFD600 !important;
+            border: none;
+            color: #fff !important;
+        }
+
+        .btn-primary:hover {
+            background: #1565C0 !important;
+        }
+
+        .btn-warning,
+        .badge-warning,
+        .small-box.bg-warning {
+            background: #FFD600 !important;
+            color: #fff !important;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+        }
+
+        .small-box .icon,
+        .small-box .inner h3,
+        .small-box .inner p {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link i,
+        .navbar-nav .fa-bars,
+        .navbar-nav .fa-sign-out-alt {
+            color: #fff !important;
+        }
+
+        .card,
+        .form-control,
+        .table,
+        .table td,
+        .table th,
+        .card-body,
+        label,
+        select,
+        input,
+        textarea {
+            color: #222831 !important;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">

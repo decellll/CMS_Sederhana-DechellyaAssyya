@@ -37,6 +37,55 @@ $categories = $conn->query("SELECT * FROM categories ORDER BY name");
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <style>
+        body,
+        .content-wrapper,
+        .container,
+        .container-fluid {
+            background: #fff !important;
+            color: #222831;
+        }
+
+        .main-header,
+        .navbar,
+        .navbar-brand {
+            background: #1976D2 !important;
+            color: #fff !important;
+        }
+
+        .navbar-brand,
+        .brand-text {
+            color: #fff !important;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            background: #FFD600 !important;
+            color: #222831 !important;
+            border-radius: 4px;
+        }
+
+        .btn-primary,
+        .badge-success {
+            background: #1976D2 !important;
+            border: none;
+            color: #fff !important;
+        }
+
+        .btn-primary:hover {
+            background: #1565C0 !important;
+        }
+
+        .btn-warning,
+        .badge-warning {
+            background: #FFD600 !important;
+            color: #222831 !important;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+        }
+
         .post-content img {
             max-width: 100%;
             height: auto;

@@ -38,6 +38,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <style>
+        body,
+        .login-page,
+        .login-box,
+        .card {
+            background: #fff !important;
+            color: #222831;
+        }
+
+        .login-logo a,
+        .login-logo b {
+            color: #1976D2 !important;
+        }
+
+        .btn-primary {
+            background: #1976D2 !important;
+            border: none;
+            color: #fff !important;
+        }
+
+        .btn-primary:hover {
+            background: #1565C0 !important;
+        }
+
+        .alert-danger {
+            background: #FFD600 !important;
+            color: #222831 !important;
+            border: none;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+        }
+    </style>
 </head>
 
 <body class="hold-transition login-page">

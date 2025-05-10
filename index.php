@@ -11,6 +11,106 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <style>
+        body,
+        .content-wrapper,
+        .container,
+        .container-fluid {
+            background: #fff !important;
+            color: #222831 !important;
+        }
+
+        .main-header,
+        .navbar,
+        .main-sidebar,
+        .sidebar,
+        .navbar-brand {
+            background: #1976D2 !important;
+            color: #fff !important;
+        }
+
+        .brand-link img {
+            height: 48px !important;
+            margin-right: 16px !important;
+        }
+
+        .navbar-brand,
+        .brand-text {
+            color: #fff !important;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-link,
+        .nav-icon,
+        .sidebar .nav-link,
+        .sidebar .nav-icon {
+            color: #fff !important;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            background: #FFD600 !important;
+            color: #1976D2 !important;
+            border-radius: 4px;
+        }
+
+        .btn-primary,
+        .badge-success,
+        .small-box.bg-info,
+        .small-box.bg-success,
+        .small-box.bg-warning {
+            background: #FFD600 !important;
+            border: none;
+            color: #fff !important;
+        }
+
+        .btn-primary:hover {
+            background: #1565C0 !important;
+        }
+
+        .btn-warning,
+        .badge-warning,
+        .small-box.bg-warning {
+            background: #FFD600 !important;
+            color: #fff !important;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+        }
+
+        .small-box .icon,
+        .small-box .inner h3,
+        .small-box .inner p {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link i,
+        .navbar-nav .fa-bars,
+        .navbar-nav .fa-sign-out-alt {
+            color: #fff !important;
+        }
+
+        .card,
+        .form-control,
+        .table,
+        .table td,
+        .table th,
+        .card-body,
+        label,
+        select,
+        input,
+        textarea {
+            color: #222831 !important;
+        }
+
+        .small-box .small-box-footer {
+            color: #fff !important;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
