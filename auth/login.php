@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CMS Sederhana</title>
+    <title>Login - DechPress</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../index.php"><b>CMS</b> Sederhana</a>
+            <img src="../public/assets/logo.png" alt="DechPress Logo" style="height:48px;"><br>
+            <a href="../index.php"><b>DechPress</b></a>
         </div>
         <div class="card">
             <div class="card-body login-card-body">

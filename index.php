@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMS Sederhana</title>
+    <title>DechPress</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -29,7 +29,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index.php" class="brand-link">
-                <span class="brand-text font-weight-light">CMS Sederhana</span>
+                <img src="public/assets/logo.png" alt="DechPress Logo" style="height:32px; margin-right:8px;">
+                <span class="brand-text font-weight-light">DechPress</span>
             </a>
 
             <!-- Sidebar -->
